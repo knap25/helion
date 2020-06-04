@@ -1,0 +1,874 @@
+tester@tester-m:~$ ls
+Desktop    Downloads         Music     Public           snap       Videos
+Documents  examples.desktop  Pictures  PycharmProjects  Templates
+tester@tester-m:~$ cd Documents
+tester@tester-m:~/Documents$ ls
+Katarzyna_Maslanka
+tester@tester-m:~/Documents$ mdir niedziela1605
+Can't open /dev/fd0: No such file or directory
+Cannot initialize 'A:'
+tester@tester-m:~/Documents$ mkdir niedziela1605
+tester@tester-m:~/Documents$ cd niedziela1605
+tester@tester-m:~/Documents/niedziela1605$ git clone https://github.com/knap25/se_hello_printer_app.git
+Cloning into 'se_hello_printer_app'...
+remote: Enumerating objects: 119, done.
+remote: Total 119 (delta 0), reused 0 (delta 0), pack-reused 119
+Receiving objects: 100% (119/119), 18.83 KiB | 97.00 KiB/s, done.
+Resolving deltas: 100% (56/56), done.
+tester@tester-m:~/Documents/niedziela1605$ git config -1
+error: unknown switch `1'
+usage: git config [<options>]
+
+Config file location
+    --global              use global config file
+    --system              use system config file
+    --local               use repository config file
+    -f, --file <file>     use given config file
+    --blob <blob-id>      read config from given blob object
+
+Action
+    --get                 get value: name [value-regex]
+    --get-all             get all values: key [value-regex]
+    --get-regexp          get values for regexp: name-regex [value-regex]
+    --get-urlmatch        get value specific for the URL: section[.var] URL
+    --replace-all         replace all matching variables: name value [value_regex]
+    --add                 add a new variable: name value
+    --unset               remove a variable: name [value-regex]
+    --unset-all           remove all matches: name [value-regex]
+    --rename-section      rename section: old-name new-name
+    --remove-section      remove a section: name
+    -l, --list            list all
+    -e, --edit            open an editor
+    --get-color           find the color configured: slot [default]
+    --get-colorbool       find the color setting: slot [stdout-is-tty]
+
+Type
+    --bool                value is "true" or "false"
+    --int                 value is decimal number
+    --bool-or-int         value is --bool or --int
+    --path                value is a path (file or directory name)
+    --expiry-date         value is an expiry date
+
+Other
+    -z, --null            terminate values with NUL byte
+    --name-only           show variable names only
+    --includes            respect include directives on lookup
+    --show-origin         show origin of config (file, standard input, blob, command line)
+
+tester@tester-m:~/Documents/niedziela1605$ git config -l
+tester@tester-m:~/Documents/niedziela1605$ ls
+se_hello_printer_app
+tester@tester-m:~/Documents/niedziela1605$ cd se_hello_printer_app/
+tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ atom
+tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ make test
+PYTHONPATH=. py.test  --verbose -s
+============================= test session starts ==============================
+platform linux -- Python 3.6.9, pytest-5.4.1, py-1.8.1, pluggy-0.13.1 -- /usr/bin/python3
+cachedir: .pytest_cache
+rootdir: /home/tester/Documents/niedziela1605/se_hello_printer_app
+collected 0 items / 2 errors
+
+==================================== ERRORS ====================================
+____________________ ERROR collecting test/test_formater.py ____________________
+ImportError while importing test module '/home/tester/Documents/niedziela1605/se_hello_printer_app/test/test_formater.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+test/test_formater.py:1: in <module>
+    from hello_world.formater import plain_text_upper_case
+hello_world/__init__.py:1: in <module>
+    from flask import Flask
+E   ModuleNotFoundError: No module named 'flask'
+_____________________ ERROR collecting test/test_views.py ______________________
+ImportError while importing test module '/home/tester/Documents/niedziela1605/se_hello_printer_app/test/test_views.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+test/test_views.py:2: in <module>
+    from hello_world import app
+hello_world/__init__.py:1: in <module>
+    from flask import Flask
+E   ModuleNotFoundError: No module named 'flask'
+=========================== short test summary info ============================
+ERROR test/test_formater.py
+ERROR test/test_views.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 2 errors during collection !!!!!!!!!!!!!!!!!!!!
+============================== 2 errors in 1.03s ===============================
+Makefile:8: recipe for target 'test' failed
+make: *** [test] Error 2
+tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ source /usr/local/bin/virtualenvwrapper.sh
+bash: /usr/local/bin/virtualenvwrapper.sh: No such file or directory
+tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ source /usr/bin/virtualenvwrapper.sh
+bash: /usr/bin/virtualenvwrapper.sh: No such file or directory
+tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ sudo pip install virtualenv
+[sudo] password for tester:
+DEPRECATION: Python 2.7 reached the end of its life on January 1st, 2020. Please upgrade your Python as Python 2.7 is no longer maintained. A future version of pip will drop support for Python 2.7. More details about Python 2 support in pip, can be found at https://pip.pypa.io/en/latest/development/release-process/#python-2-support
+WARNING: The directory '/home/tester/.cache/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.
+Collecting virtualenv
+  Downloading virtualenv-20.0.20-py2.py3-none-any.whl (4.7 MB)
+     |████████████████████████████████| 4.7 MB 1.4 MB/s
+Collecting importlib-metadata<2,>=0.12; python_version < "3.8"
+  Downloading importlib_metadata-1.6.0-py2.py3-none-any.whl (30 kB)
+Collecting pathlib2<3,>=2.3.3; python_version < "3.4" and sys_platform != "win32"
+  Downloading pathlib2-2.3.5-py2.py3-none-any.whl (18 kB)
+Collecting importlib-resources<2,>=1.0; python_version < "3.7"
+  Downloading importlib_resources-1.5.0-py2.py3-none-any.whl (21 kB)
+Collecting filelock<4,>=3.0.0
+  Downloading filelock-3.0.12.tar.gz (8.5 kB)
+Collecting contextlib2<1,>=0.6.0; python_version < "3.3"
+  Downloading contextlib2-0.6.0.post1-py2.py3-none-any.whl (9.8 kB)
+Collecting appdirs<2,>=1.4.3
+  Downloading appdirs-1.4.4-py2.py3-none-any.whl (9.6 kB)
+Requirement already satisfied: six<2,>=1.9.0 in /usr/lib/python2.7/dist-packages (from virtualenv) (1.11.0)
+Collecting distlib<1,>=0.3.0
+  Downloading distlib-0.3.0.zip (571 kB)
+     |████████████████████████████████| 571 kB 1.6 MB/s
+Collecting zipp>=0.5
+  Downloading zipp-1.2.0-py2.py3-none-any.whl (4.8 kB)
+Collecting configparser>=3.5; python_version < "3"
+  Downloading configparser-4.0.2-py2.py3-none-any.whl (22 kB)
+Collecting scandir; python_version < "3.5"
+  Downloading scandir-1.10.0.tar.gz (33 kB)
+Collecting typing; python_version < "3.5"
+  Downloading typing-3.7.4.1-py2-none-any.whl (26 kB)
+Collecting singledispatch; python_version < "3.4"
+  Downloading singledispatch-3.4.0.3-py2.py3-none-any.whl (12 kB)
+Building wheels for collected packages: filelock, distlib, scandir
+  Building wheel for filelock (setup.py) ... done
+  Created wheel for filelock: filename=filelock-3.0.12-py2-none-any.whl size=9068 sha256=c2614e51a815558642e6beb1fa6873ee236949b5a0268328d98bcf3b876ed002
+  Stored in directory: /tmp/pip-ephem-wheel-cache-0xmkMI/wheels/b9/91/23/b559c1f4fd55056712b3a71cd9cab1dc0089e2232d502ed72e
+  Building wheel for distlib (setup.py) ... done
+  Created wheel for distlib: filename=distlib-0.3.0-py2-none-any.whl size=336971 sha256=0783dc412370d2be8cb43276376e398eeff09327a03412f71ce5bdc43d4f8908
+  Stored in directory: /tmp/pip-ephem-wheel-cache-0xmkMI/wheels/0c/88/ac/41500883ea902d3409a83a827870a726346b5ebfd0523e91df
+  Building wheel for scandir (setup.py) ... done
+  Created wheel for scandir: filename=scandir-1.10.0-cp27-cp27mu-linux_x86_64.whl size=36330 sha256=bb41bf8d3f0719a9cfd981bbdb5d6a3f396864039740317d6cf0056b247505ec
+  Stored in directory: /tmp/pip-ephem-wheel-cache-0xmkMI/wheels/58/2c/26/52406f7d1f19bcc47a6fbd1037a5f293492f5cf1d58c539edb
+Successfully built filelock distlib scandir
+Installing collected packages: contextlib2, zipp, configparser, scandir, pathlib2, importlib-metadata, typing, singledispatch, importlib-resources, filelock, appdirs, distlib, virtualenv
+Successfully installed appdirs-1.4.4 configparser-4.0.2 contextlib2-0.6.0.post1 distlib-0.3.0 filelock-3.0.12 importlib-metadata-1.6.0 importlib-resources-1.5.0 pathlib2-2.3.5 scandir-1.10.0 singledispatch-3.4.0.3 typing-3.7.4.1 virtualenv-20.0.20 zipp-1.2.0
+WARNING: You are using pip version 20.0.2; however, version 20.1 is available.
+You should consider upgrading via the '/usr/bin/python -m pip install --upgrade pip' command.
+tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ sudo pip install virtualenvwrapper
+DEPRECATION: Python 2.7 reached the end of its life on January 1st, 2020. Please upgrade your Python as Python 2.7 is no longer maintained. A future version of pip will drop support for Python 2.7. More details about Python 2 support in pip, can be found at https://pip.pypa.io/en/latest/development/release-process/#python-2-support
+WARNING: The directory '/home/tester/.cache/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you may want sudo's -H flag.
+Collecting virtualenvwrapper
+  Downloading virtualenvwrapper-4.8.4.tar.gz (334 kB)
+     |████████████████████████████████| 334 kB 461 kB/s
+Collecting stevedore
+  Downloading stevedore-1.32.0-py2.py3-none-any.whl (43 kB)
+     |████████████████████████████████| 43 kB 1.9 MB/s
+Requirement already satisfied: virtualenv in /usr/local/lib/python2.7/dist-packages (from virtualenvwrapper) (20.0.20)
+Collecting virtualenv-clone
+  Downloading virtualenv_clone-0.5.4-py2.py3-none-any.whl (6.6 kB)
+Collecting pbr!=2.1.0,>=2.0.0
+  Downloading pbr-5.4.5-py2.py3-none-any.whl (110 kB)
+     |████████████████████████████████| 110 kB 1.5 MB/s
+Requirement already satisfied: six>=1.10.0 in /usr/lib/python2.7/dist-packages (from stevedore->virtualenvwrapper) (1.11.0)
+Requirement already satisfied: importlib-metadata<2,>=0.12; python_version < "3.8" in /usr/local/lib/python2.7/dist-packages (from virtualenv->virtualenvwrapper) (1.6.0)
+Requirement already satisfied: pathlib2<3,>=2.3.3; python_version < "3.4" and sys_platform != "win32" in /usr/local/lib/python2.7/dist-packages (from virtualenv->virtualenvwrapper) (2.3.5)
+Requirement already satisfied: importlib-resources<2,>=1.0; python_version < "3.7" in /usr/local/lib/python2.7/dist-packages (from virtualenv->virtualenvwrapper) (1.5.0)
+Requirement already satisfied: filelock<4,>=3.0.0 in /usr/local/lib/python2.7/dist-packages (from virtualenv->virtualenvwrapper) (3.0.12)
+Requirement already satisfied: contextlib2<1,>=0.6.0; python_version < "3.3" in /usr/local/lib/python2.7/dist-packages (from virtualenv->virtualenvwrapper) (0.6.0.post1)
+Requirement already satisfied: appdirs<2,>=1.4.3 in /usr/local/lib/python2.7/dist-packages (from virtualenv->virtualenvwrapper) (1.4.4)
+Requirement already satisfied: distlib<1,>=0.3.0 in /usr/local/lib/python2.7/dist-packages (from virtualenv->virtualenvwrapper) (0.3.0)
+Requirement already satisfied: zipp>=0.5 in /usr/local/lib/python2.7/dist-packages (from importlib-metadata<2,>=0.12; python_version < "3.8"->virtualenv->virtualenvwrapper) (1.2.0)
+Requirement already satisfied: configparser>=3.5; python_version < "3" in /usr/local/lib/python2.7/dist-packages (from importlib-metadata<2,>=0.12; python_version < "3.8"->virtualenv->virtualenvwrapper) (4.0.2)
+Requirement already satisfied: scandir; python_version < "3.5" in /usr/local/lib/python2.7/dist-packages (from pathlib2<3,>=2.3.3; python_version < "3.4" and sys_platform != "win32"->virtualenv->virtualenvwrapper) (1.10.0)
+Requirement already satisfied: typing; python_version < "3.5" in /usr/local/lib/python2.7/dist-packages (from importlib-resources<2,>=1.0; python_version < "3.7"->virtualenv->virtualenvwrapper) (3.7.4.1)
+Requirement already satisfied: singledispatch; python_version < "3.4" in /usr/local/lib/python2.7/dist-packages (from importlib-resources<2,>=1.0; python_version < "3.7"->virtualenv->virtualenvwrapper) (3.4.0.3)
+Building wheels for collected packages: virtualenvwrapper
+  Building wheel for virtualenvwrapper (setup.py) ... done
+  Created wheel for virtualenvwrapper: filename=virtualenvwrapper-4.8.4-py2.py3-none-any.whl size=25525 sha256=47c9c27be9d2ea9776deabfc299ec1c87ba66f0eb3ec57b13f7ffc89fb2a89a2
+  Stored in directory: /tmp/pip-ephem-wheel-cache-weWmEb/wheels/f4/fa/8b/ecfa4ff199e208f4020d2ba5d65878093173bd26519df20102
+Successfully built virtualenvwrapper
+Installing collected packages: pbr, stevedore, virtualenv-clone, virtualenvwrapper
+Successfully installed pbr-5.4.5 stevedore-1.32.0 virtualenv-clone-0.5.4 virtualenvwrapper-4.8.4
+WARNING: You are using pip version 20.0.2; however, version 20.1 is available.
+You should consider upgrading via the '/usr/bin/python -m pip install --upgrade pip' command.
+tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ source /usr/bin/virtualenvwrapper.sh
+bash: /usr/bin/virtualenvwrapper.sh: No such file or directory
+tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ source /usr/local/bin/virtualenvwrapper.sh
+virtualenvwrapper.user_scripts creating /home/tester/.virtualenvs/premkproject
+virtualenvwrapper.user_scripts creating /home/tester/.virtualenvs/postmkproject
+virtualenvwrapper.user_scripts creating /home/tester/.virtualenvs/initialize
+virtualenvwrapper.user_scripts creating /home/tester/.virtualenvs/premkvirtualenv
+virtualenvwrapper.user_scripts creating /home/tester/.virtualenvs/postmkvirtualenv
+virtualenvwrapper.user_scripts creating /home/tester/.virtualenvs/prermvirtualenv
+virtualenvwrapper.user_scripts creating /home/tester/.virtualenvs/postrmvirtualenv
+virtualenvwrapper.user_scripts creating /home/tester/.virtualenvs/predeactivate
+virtualenvwrapper.user_scripts creating /home/tester/.virtualenvs/postdeactivate
+virtualenvwrapper.user_scripts creating /home/tester/.virtualenvs/preactivate
+virtualenvwrapper.user_scripts creating /home/tester/.virtualenvs/postactivate
+virtualenvwrapper.user_scripts creating /home/tester/.virtualenvs/get_env_details
+tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ mkvirtualenv wsb-simple-flask-app
+created virtual environment CPython2.7.17.final.0-64 in 1985ms
+  creator CPython2Posix(dest=/home/tester/.virtualenvs/wsb-simple-flask-app, clear=False, global=False)
+  seeder FromAppData(download=False, pip=latest, setuptools=latest, wheel=latest, via=copy, app_data_dir=/home/tester/.local/share/virtualenv/seed-app-data/v1.0.1)
+  activators PythonActivator,CShellActivator,FishActivator,PowerShellActivator,BashActivator
+virtualenvwrapper.user_scripts creating /home/tester/.virtualenvs/wsb-simple-flask-app/bin/predeactivate
+virtualenvwrapper.user_scripts creating /home/tester/.virtualenvs/wsb-simple-flask-app/bin/postdeactivate
+virtualenvwrapper.user_scripts creating /home/tester/.virtualenvs/wsb-simple-flask-app/bin/preactivate
+virtualenvwrapper.user_scripts creating /home/tester/.virtualenvs/wsb-simple-flask-app/bin/postactivate
+virtualenvwrapper.user_scripts creating /home/tester/.virtualenvs/wsb-simple-flask-app/bin/get_env_details
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ pip install -r requirements.txt
+DEPRECATION: Python 2.7 reached the end of its life on January 1st, 2020. Please upgrade your Python as Python 2.7 is no longer maintained. pip 21.0 will drop support for Python 2.7 in January 2021. More details about Python 2 support in pip, can be found at https://pip.pypa.io/en/latest/development/release-process/#python-2-support
+Collecting flask
+  Downloading Flask-1.1.2-py2.py3-none-any.whl (94 kB)
+     |████████████████████████████████| 94 kB 43 kB/s
+Collecting itsdangerous>=0.24
+  Downloading itsdangerous-1.1.0-py2.py3-none-any.whl (16 kB)
+Collecting click>=5.1
+  Downloading click-7.1.2-py2.py3-none-any.whl (82 kB)
+     |████████████████████████████████| 82 kB 395 kB/s
+Collecting Werkzeug>=0.15
+  Downloading Werkzeug-1.0.1-py2.py3-none-any.whl (298 kB)
+     |████████████████████████████████| 298 kB 1.0 MB/s
+Collecting Jinja2>=2.10.1
+  Downloading Jinja2-2.11.2-py2.py3-none-any.whl (125 kB)
+     |████████████████████████████████| 125 kB 933 kB/s
+Collecting MarkupSafe>=0.23
+  Downloading MarkupSafe-1.1.1-cp27-cp27mu-manylinux1_x86_64.whl (24 kB)
+Installing collected packages: itsdangerous, click, Werkzeug, MarkupSafe, Jinja2, flask
+Successfully installed Jinja2-2.11.2 MarkupSafe-1.1.1 Werkzeug-1.0.1 click-7.1.2 flask-1.1.2 itsdangerous-1.1.0
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ pip install -r test_requirements.txt
+DEPRECATION: Python 2.7 reached the end of its life on January 1st, 2020. Please upgrade your Python as Python 2.7 is no longer maintained. pip 21.0 will drop support for Python 2.7 in January 2021. More details about Python 2 support in pip, can be found at https://pip.pypa.io/en/latest/development/release-process/#python-2-support
+Collecting mock
+  Downloading mock-3.0.5-py2.py3-none-any.whl (25 kB)
+Collecting pytest
+  Downloading pytest-4.6.10-py2.py3-none-any.whl (231 kB)
+     |████████████████████████████████| 231 kB 410 kB/s
+Collecting flake8
+  Downloading flake8-3.8.1-py2.py3-none-any.whl (72 kB)
+     |████████████████████████████████| 72 kB 346 kB/s
+Collecting funcsigs>=1; python_version < "3.3"
+  Downloading funcsigs-1.0.2-py2.py3-none-any.whl (17 kB)
+Collecting six
+  Using cached six-1.14.0-py2.py3-none-any.whl (10 kB)
+Collecting attrs>=17.4.0
+  Using cached attrs-19.3.0-py2.py3-none-any.whl (39 kB)
+Collecting atomicwrites>=1.0
+  Downloading atomicwrites-1.4.0-py2.py3-none-any.whl (6.8 kB)
+Collecting pluggy<1.0,>=0.12
+  Using cached pluggy-0.13.1-py2.py3-none-any.whl (18 kB)
+Collecting packaging
+  Using cached packaging-20.3-py2.py3-none-any.whl (37 kB)
+Collecting importlib-metadata>=0.12; python_version < "3.8"
+  Using cached importlib_metadata-1.6.0-py2.py3-none-any.whl (30 kB)
+Collecting py>=1.5.0
+  Using cached py-1.8.1-py2.py3-none-any.whl (83 kB)
+Collecting more-itertools<6.0.0,>=4.0.0; python_version <= "2.7"
+  Downloading more_itertools-5.0.0-py2-none-any.whl (52 kB)
+     |████████████████████████████████| 52 kB 251 kB/s
+Collecting wcwidth
+  Using cached wcwidth-0.1.9-py2.py3-none-any.whl (19 kB)
+Collecting pathlib2>=2.2.0; python_version < "3.6"
+  Downloading pathlib2-2.3.5-py2.py3-none-any.whl (18 kB)
+Collecting typing; python_version < "3.5"
+  Downloading typing-3.7.4.1-py2-none-any.whl (26 kB)
+Collecting mccabe<0.7.0,>=0.6.0
+  Downloading mccabe-0.6.1-py2.py3-none-any.whl (8.6 kB)
+Collecting pycodestyle<2.7.0,>=2.6.0a1
+  Downloading pycodestyle-2.6.0-py2.py3-none-any.whl (41 kB)
+     |████████████████████████████████| 41 kB 219 kB/s
+Collecting functools32; python_version < "3.2"
+  Downloading functools32-3.2.3-2.tar.gz (31 kB)
+Collecting pyflakes<2.3.0,>=2.2.0
+  Downloading pyflakes-2.2.0-py2.py3-none-any.whl (66 kB)
+     |████████████████████████████████| 66 kB 583 kB/s
+Collecting enum34; python_version < "3.4"
+  Downloading enum34-1.1.10-py2-none-any.whl (11 kB)
+Collecting configparser; python_version < "3.2"
+  Downloading configparser-4.0.2-py2.py3-none-any.whl (22 kB)
+Collecting pyparsing>=2.0.2
+  Using cached pyparsing-2.4.7-py2.py3-none-any.whl (67 kB)
+Collecting contextlib2; python_version < "3"
+  Downloading contextlib2-0.6.0.post1-py2.py3-none-any.whl (9.8 kB)
+Collecting zipp>=0.5
+  Downloading zipp-1.2.0-py2.py3-none-any.whl (4.8 kB)
+Collecting scandir; python_version < "3.5"
+  Downloading scandir-1.10.0.tar.gz (33 kB)
+Building wheels for collected packages: functools32, scandir
+  Building wheel for functools32 (setup.py) ... done
+  Created wheel for functools32: filename=functools32-3.2.3.post2-py2-none-any.whl size=14556 sha256=d199a179cf57976fba2c366bbb7145a85b3f22bedf046237ad2577edac650da2
+  Stored in directory: /home/tester/.cache/pip/wheels/c2/ea/a3/25af52265fad6418a74df0b8d9ca8b89e0b3735dbd4d0d3794
+  Building wheel for scandir (setup.py) ... done
+  Created wheel for scandir: filename=scandir-1.10.0-cp27-cp27mu-linux_x86_64.whl size=33229 sha256=fefcb9d1a341f08481b48d1d3013362e09ef3a8e757692e3fb8ff6031d3d6dfb
+  Stored in directory: /home/tester/.cache/pip/wheels/58/2c/26/52406f7d1f19bcc47a6fbd1037a5f293492f5cf1d58c539edb
+Successfully built functools32 scandir
+Installing collected packages: funcsigs, six, mock, attrs, atomicwrites, contextlib2, zipp, configparser, scandir, pathlib2, importlib-metadata, pluggy, pyparsing, packaging, py, more-itertools, wcwidth, pytest, typing, mccabe, pycodestyle, functools32, pyflakes, enum34, flake8
+Successfully installed atomicwrites-1.4.0 attrs-19.3.0 configparser-4.0.2 contextlib2-0.6.0.post1 enum34-1.1.10 flake8-3.8.1 funcsigs-1.0.2 functools32-3.2.3.post2 importlib-metadata-1.6.0 mccabe-0.6.1 mock-3.0.5 more-itertools-5.0.0 packaging-20.3 pathlib2-2.3.5 pluggy-0.13.1 py-1.8.1 pycodestyle-2.6.0 pyflakes-2.2.0 pyparsing-2.4.7 pytest-4.6.10 scandir-1.10.0 six-1.14.0 typing-3.7.4.1 wcwidth-0.1.9 zipp-1.2.0
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ python main.py
+ * Serving Flask app "hello_world" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+^C(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ PYTHONPATH=. FLASK_APP=hello_world flask run
+ * Serving Flask app "hello_world"
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+^C(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ make deps
+pip install -r requirements.txt; \
+pip install -r test_requirements.txt
+DEPRECATION: Python 2.7 reached the end of its life on January 1st, 2020. Please upgrade your Python as Python 2.7 is no longer maintained. pip 21.0 will drop support for Python 2.7 in January 2021. More details about Python 2 support in pip, can be found at https://pip.pypa.io/en/latest/development/release-process/#python-2-support
+Requirement already satisfied: flask in /home/tester/.virtualenvs/wsb-simple-flask-app/lib/python2.7/site-packages (from -r requirements.txt (line 1)) (1.1.2)
+Requirement already satisfied: itsdangerous>=0.24 in /home/tester/.virtualenvs/wsb-simple-flask-app/lib/python2.7/site-packages (from flask->-r requirements.txt (line 1)) (1.1.0)
+Requirement already satisfied: click>=5.1 in /home/tester/.virtualenvs/wsb-simple-flask-app/lib/python2.7/site-packages (from flask->-r requirements.txt (line 1)) (7.1.2)
+Requirement already satisfied: Werkzeug>=0.15 in /home/tester/.virtualenvs/wsb-simple-flask-app/lib/python2.7/site-packages (from flask->-r requirements.txt (line 1)) (1.0.1)
+Requirement already satisfied: Jinja2>=2.10.1 in /home/tester/.virtualenvs/wsb-simple-flask-app/lib/python2.7/site-packages (from flask->-r requirements.txt (line 1)) (2.11.2)
+Requirement already satisfied: MarkupSafe>=0.23 in /home/tester/.virtualenvs/wsb-simple-flask-app/lib/python2.7/site-packages (from Jinja2>=2.10.1->flask->-r requirements.txt (line 1)) (1.1.1)
+DEPRECATION: Python 2.7 reached the end of its life on January 1st, 2020. Please upgrade your Python as Python 2.7 is no longer maintained. pip 21.0 will drop support for Python 2.7 in January 2021. More details about Python 2 support in pip, can be found at https://pip.pypa.io/en/latest/development/release-process/#python-2-support
+Requirement already satisfied: mock in /home/tester/.virtualenvs/wsb-simple-flask-app/lib/python2.7/site-packages (from -r test_requirements.txt (line 1)) (3.0.5)
+Requirement already satisfied: pytest in /home/tester/.virtualenvs/wsb-simple-flask-app/lib/python2.7/site-packages (from -r test_requirements.txt (line 2)) (4.6.10)
+Requirement already satisfied: flake8 in /home/tester/.virtualenvs/wsb-simple-flask-app/lib/python2.7/site-packages (from -r test_requirements.txt (line 3)) (3.8.1)
+Requirement already satisfied: funcsigs>=1; python_version < "3.3" in /home/tester/.virtualenvs/wsb-simple-flask-app/lib/python2.7/site-packages (from mock->-r test_requirements.txt (line 1)) (1.0.2)
+Requirement already satisfied: six in /home/tester/.virtualenvs/wsb-simple-flask-app/lib/python2.7/site-packages (from mock->-r test_requirements.txt (line 1)) (1.14.0)
+Requirement already satisfied: attrs>=17.4.0 in /home/tester/.virtualenvs/wsb-simple-flask-app/lib/python2.7/site-packages (from pytest->-r test_requirements.txt (line 2)) (19.3.0)
+Requirement already satisfied: atomicwrites>=1.0 in /home/tester/.virtualenvs/wsb-simple-flask-app/lib/python2.7/site-packages (from pytest->-r test_requirements.txt (line 2)) (1.4.0)
+Requirement already satisfied: pluggy<1.0,>=0.12 in /home/tester/.virtualenvs/wsb-simple-flask-app/lib/python2.7/site-packages (from pytest->-r test_requirements.txt (line 2)) (0.13.1)
+Requirement already satisfied: packaging in /home/tester/.virtualenvs/wsb-simple-flask-app/lib/python2.7/site-packages (from pytest->-r test_requirements.txt (line 2)) (20.3)
+Requirement already satisfied: importlib-metadata>=0.12; python_version < "3.8" in /home/tester/.virtualenvs/wsb-simple-flask-app/lib/python2.7/site-packages (from pytest->-r test_requirements.txt (line 2)) (1.6.0)
+Requirement already satisfied: py>=1.5.0 in /home/tester/.virtualenvs/wsb-simple-flask-app/lib/python2.7/site-packages (from pytest->-r test_requirements.txt (line 2)) (1.8.1)
+Requirement already satisfied: more-itertools<6.0.0,>=4.0.0; python_version <= "2.7" in /home/tester/.virtualenvs/wsb-simple-flask-app/lib/python2.7/site-packages (from pytest->-r test_requirements.txt (line 2)) (5.0.0)
+Requirement already satisfied: wcwidth in /home/tester/.virtualenvs/wsb-simple-flask-app/lib/python2.7/site-packages (from pytest->-r test_requirements.txt (line 2)) (0.1.9)
+Requirement already satisfied: pathlib2>=2.2.0; python_version < "3.6" in /home/tester/.virtualenvs/wsb-simple-flask-app/lib/python2.7/site-packages (from pytest->-r test_requirements.txt (line 2)) (2.3.5)
+Requirement already satisfied: typing; python_version < "3.5" in /home/tester/.virtualenvs/wsb-simple-flask-app/lib/python2.7/site-packages (from flake8->-r test_requirements.txt (line 3)) (3.7.4.1)
+Requirement already satisfied: mccabe<0.7.0,>=0.6.0 in /home/tester/.virtualenvs/wsb-simple-flask-app/lib/python2.7/site-packages (from flake8->-r test_requirements.txt (line 3)) (0.6.1)
+Requirement already satisfied: pycodestyle<2.7.0,>=2.6.0a1 in /home/tester/.virtualenvs/wsb-simple-flask-app/lib/python2.7/site-packages (from flake8->-r test_requirements.txt (line 3)) (2.6.0)
+Requirement already satisfied: functools32; python_version < "3.2" in /home/tester/.virtualenvs/wsb-simple-flask-app/lib/python2.7/site-packages (from flake8->-r test_requirements.txt (line 3)) (3.2.3.post2)
+Requirement already satisfied: pyflakes<2.3.0,>=2.2.0 in /home/tester/.virtualenvs/wsb-simple-flask-app/lib/python2.7/site-packages (from flake8->-r test_requirements.txt (line 3)) (2.2.0)
+Requirement already satisfied: enum34; python_version < "3.4" in /home/tester/.virtualenvs/wsb-simple-flask-app/lib/python2.7/site-packages (from flake8->-r test_requirements.txt (line 3)) (1.1.10)
+Requirement already satisfied: configparser; python_version < "3.2" in /home/tester/.virtualenvs/wsb-simple-flask-app/lib/python2.7/site-packages (from flake8->-r test_requirements.txt (line 3)) (4.0.2)
+Requirement already satisfied: pyparsing>=2.0.2 in /home/tester/.virtualenvs/wsb-simple-flask-app/lib/python2.7/site-packages (from packaging->pytest->-r test_requirements.txt (line 2)) (2.4.7)
+Requirement already satisfied: contextlib2; python_version < "3" in /home/tester/.virtualenvs/wsb-simple-flask-app/lib/python2.7/site-packages (from importlib-metadata>=0.12; python_version < "3.8"->pytest->-r test_requirements.txt (line 2)) (0.6.0.post1)
+Requirement already satisfied: zipp>=0.5 in /home/tester/.virtualenvs/wsb-simple-flask-app/lib/python2.7/site-packages (from importlib-metadata>=0.12; python_version < "3.8"->pytest->-r test_requirements.txt (line 2)) (1.2.0)
+Requirement already satisfied: scandir; python_version < "3.5" in /home/tester/.virtualenvs/wsb-simple-flask-app/lib/python2.7/site-packages (from pathlib2>=2.2.0; python_version < "3.6"->pytest->-r test_requirements.txt (line 2)) (1.10.0)
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ make test
+PYTHONPATH=. py.test  --verbose -s
+========================================================= test session starts ==========================================================
+platform linux2 -- Python 2.7.17, pytest-4.6.10, py-1.8.1, pluggy-0.13.1 -- /home/tester/.virtualenvs/wsb-simple-flask-app/bin/python
+cachedir: .pytest_cache
+rootdir: /home/tester/Documents/niedziela1605/se_hello_printer_app
+collected 3 items
+
+test/test_formater.py::TestFormater::test_plain_lowercase PASSED
+test/test_views.py::FlaskrTestCase::test_msg_with_output PASSED
+test/test_views.py::FlaskrTestCase::test_outputs PASSED
+
+======================================================= 3 passed in 0.31 seconds =======================================================
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ make lint
+flake8 hello_world test
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ make test
+PYTHONPATH=. py.test  --verbose -s
+========================================================= test session starts ==========================================================
+platform linux2 -- Python 2.7.17, pytest-4.6.10, py-1.8.1, pluggy-0.13.1 -- /home/tester/.virtualenvs/wsb-simple-flask-app/bin/python
+cachedir: .pytest_cache
+rootdir: /home/tester/Documents/niedziela1605/se_hello_printer_app
+collected 3 items
+
+test/test_formater.py::TestFormater::test_plain_lowercase PASSED
+test/test_views.py::FlaskrTestCase::test_msg_with_output PASSED
+test/test_views.py::FlaskrTestCase::test_outputs PASSED
+
+======================================================= 3 passed in 0.63 seconds =======================================================
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ make run
+PYTHONPATH=. FLASK_APP=hello_world flask run
+ * Serving Flask app "hello_world"
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+127.0.0.1 - - [16/May/2020 08:28:06] "GET / HTTP/1.1" 200 -
+^CMakefile:14: recipe for target 'run' failed
+make: *** [run] Interrupt
+
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ git config -l
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.logallrefupdates=true
+remote.origin.url=https://github.com/knap25/se_hello_printer_app.git
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+branch.master.remote=origin
+branch.master.merge=refs/heads/master
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ git config --global user.email kasia.napieracz@gmail.com
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ git config -l
+user.email=kasia.napieracz@gmail.com
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.logallrefupdates=true
+remote.origin.url=https://github.com/knap25/se_hello_printer_app.git
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+branch.master.remote=origin
+branch.master.merge=refs/heads/master
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ echo 'gunicorn' >> requirements.txt
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ pip install -r requirements.txt
+DEPRECATION: Python 2.7 reached the end of its life on January 1st, 2020. Please upgrade your Python as Python 2.7 is no longer maintained. pip 21.0 will drop support for Python 2.7 in January 2021. More details about Python 2 support in pip, can be found at https://pip.pypa.io/en/latest/development/release-process/#python-2-support
+ERROR: Could not find a version that satisfies the requirement flaskgunicorn (from -r requirements.txt (line 1)) (from versions: none)
+ERROR: No matching distribution found for flaskgunicorn (from -r requirements.txt (line 1))
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ pip install -r requirements.txt
+DEPRECATION: Python 2.7 reached the end of its life on January 1st, 2020. Please upgrade your Python as Python 2.7 is no longer maintained. pip 21.0 will drop support for Python 2.7 in January 2021. More details about Python 2 support in pip, can be found at https://pip.pypa.io/en/latest/development/release-process/#python-2-support
+ERROR: Could not find a version that satisfies the requirement flaskgunicorn (from -r requirements.txt (line 1)) (from versions: none)
+ERROR: No matching distribution found for flaskgunicorn (from -r requirements.txt (line 1))
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ pip install -r requirements.txt
+DEPRECATION: Python 2.7 reached the end of its life on January 1st, 2020. Please upgrade your Python as Python 2.7 is no longer maintained. pip 21.0 will drop support for Python 2.7 in January 2021. More details about Python 2 support in pip, can be found at https://pip.pypa.io/en/latest/development/release-process/#python-2-support
+ERROR: Could not find a version that satisfies the requirement flaskgunicorn (from -r requirements.txt (line 1)) (from versions: none)
+ERROR: No matching distribution found for flaskgunicorn (from -r requirements.txt (line 1))
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ pip install -r requirements.txt
+DEPRECATION: Python 2.7 reached the end of its life on January 1st, 2020. Please upgrade your Python as Python 2.7 is no longer maintained. pip 21.0 will drop support for Python 2.7 in January 2021. More details about Python 2 support in pip, can be found at https://pip.pypa.io/en/latest/development/release-process/#python-2-support
+Requirement already satisfied: flask in /home/tester/.virtualenvs/wsb-simple-flask-app/lib/python2.7/site-packages (from -r requirements.txt (line 1)) (1.1.2)
+Collecting gunicorn
+  Downloading gunicorn-19.10.0-py2.py3-none-any.whl (113 kB)
+     |████████████████████████████████| 113 kB 552 kB/s
+Requirement already satisfied: itsdangerous>=0.24 in /home/tester/.virtualenvs/wsb-simple-flask-app/lib/python2.7/site-packages (from flask->-r requirements.txt (line 1)) (1.1.0)
+Requirement already satisfied: click>=5.1 in /home/tester/.virtualenvs/wsb-simple-flask-app/lib/python2.7/site-packages (from flask->-r requirements.txt (line 1)) (7.1.2)
+Requirement already satisfied: Werkzeug>=0.15 in /home/tester/.virtualenvs/wsb-simple-flask-app/lib/python2.7/site-packages (from flask->-r requirements.txt (line 1)) (1.0.1)
+Requirement already satisfied: Jinja2>=2.10.1 in /home/tester/.virtualenvs/wsb-simple-flask-app/lib/python2.7/site-packages (from flask->-r requirements.txt (line 1)) (2.11.2)
+Requirement already satisfied: MarkupSafe>=0.23 in /home/tester/.virtualenvs/wsb-simple-flask-app/lib/python2.7/site-packages (from Jinja2>=2.10.1->flask->-r requirements.txt (line 1)) (1.1.1)
+Installing collected packages: gunicorn
+Successfully installed gunicorn-19.10.0
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ PYTHONPATH=$PYTHONPATH:$(pwd) gunicorn hello_world:app
+[2020-05-16 09:41:01 +0000] [9446] [INFO] Starting gunicorn 19.10.0
+[2020-05-16 09:41:01 +0000] [9446] [INFO] Listening at: http://127.0.0.1:8000 (9446)
+[2020-05-16 09:41:01 +0000] [9446] [INFO] Using worker: sync
+[2020-05-16 09:41:01 +0000] [9450] [INFO] Booting worker with pid: 9450
+^C[2020-05-16 09:58:45 +0000] [9446] [INFO] Handling signal: int
+[2020-05-16 09:58:45 +0000] [9450] [INFO] Worker exiting (pid: 9450)
+[2020-05-16 09:58:45 +0000] [9446] [INFO] Shutting down: Master
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ atom procfile
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ touch runtime.txt
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ cut runtime.txt
+cut: you must specify a list of bytes, characters, or fields
+Try 'cut --help' for more information.
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ python --version
+Python 2.7.17
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ sudo snap install --classic heroku
+[sudo] password for tester:
+heroku v7.41.1 from Heroku✓ installed
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ python-3.6.10
+python-3.6.10: command not found
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ python --version
+Python 2.7.17
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ python3
+Python 3.6.9 (default, Apr 18 2020, 01:56:04)
+[GCC 8.4.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+KeyboardInterrupt
+>>>
+KeyboardInterrupt
+>>> exit()
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ heroku local
+[WARN] ENOENT: no such file or directory, open 'Procfile'
+[FAIL] No Procfile and no package.json file found in Current Directory - See run --help
+TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Index.run (/snap/heroku/3929/node_modules/@heroku-cli/plugin-local/lib/commands/local/index.js:30:38)
+    at Index._run (/snap/heroku/3929/node_modules/@heroku-cli/plugin-local/node_modules/@oclif/command/lib/command.js:43:31)
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ python3 -m venv .venv
+The virtual environment was not created successfully because ensurepip is not
+available.  On Debian/Ubuntu systems, you need to install the python3-venv
+package using the following command.
+
+    apt-get install python3-venv
+
+You may need to use sudo with that command.  After installing the python3-venv
+package, recreate your virtual environment.
+
+Failing command: ['/home/tester/Documents/niedziela1605/se_hello_printer_app/.venv/bin/python3', '-Im', 'ensurepip', '--upgrade', '--default-pip']
+
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ heroku local
+[WARN] ENOENT: no such file or directory, open 'Procfile'
+[FAIL] No Procfile and no package.json file found in Current Directory - See run --help
+TypeError: Cannot convert undefined or null to object
+    at Function.keys (<anonymous>)
+    at Index.run (/snap/heroku/3929/node_modules/@heroku-cli/plugin-local/lib/commands/local/index.js:30:38)
+    at Index._run (/snap/heroku/3929/node_modules/@heroku-cli/plugin-local/node_modules/@oclif/command/lib/command.js:43:31)
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ heroku local
+10:20:22 AM web.1 |  [2020-05-16 10:20:22 +0000] [455] [INFO] Starting gunicorn 19.10.0
+10:20:22 AM web.1 |  [2020-05-16 10:20:22 +0000] [455] [INFO] Listening at: http://0.0.0.0:5000 (455)
+10:20:22 AM web.1 |  [2020-05-16 10:20:22 +0000] [455] [INFO] Using worker: sync
+10:20:22 AM web.1 |  [2020-05-16 10:20:22 +0000] [459] [INFO] Booting worker with pid: 459
+^C[WARN] Interrupted by User
+[DONE] Killing all processes with signal  SIGINT
+10:21:11 AM web.1 |  [2020-05-16 10:21:11 +0000] [455] [INFO] Handling signal: int
+
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ 10:21:11 AM web.1 |  [2020-05-16 10:21:11 +0000] [459] [INFO] Worker exiting (pid: 459)
+10:21:11 AM web.1 |  [2020-05-16 10:21:11 +0000] [455] [INFO] Shutting down: Master
+10:21:11 AM web.1 Exited with exit code SIGINT
+exit()
+exit()
+> ^C
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ heroku login -i
+heroku: Enter your login credentials
+Email: kasia.napieracz@gmail.com
+Password: ***********
+Logged in as kasia.napieracz@gmail.com
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ heroku create
+Creating app... done, ⬢ shrouded-eyrie-06740
+https://shrouded-eyrie-06740.herokuapp.com/ | https://git.heroku.com/shrouded-eyrie-06740.git
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ git remote -v
+heroku	https://git.heroku.com/shrouded-eyrie-06740.git (fetch)
+heroku	https://git.heroku.com/shrouded-eyrie-06740.git (push)
+origin	https://github.com/knap25/se_hello_printer_app.git (fetch)
+origin	https://github.com/knap25/se_hello_printer_app.git (push)
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ git push heroku master
+Counting objects: 119, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (60/60), done.
+Writing objects: 100% (119/119), 18.83 KiB | 18.83 MiB/s, done.
+Total 119 (delta 56), reused 119 (delta 56)
+remote: Compressing source files... done.
+remote: Building source:
+remote:
+remote: -----> Python app detected
+remote: -----> Installing python-3.6.10
+remote: -----> Installing pip
+remote: -----> Installing SQLite3
+remote: -----> Installing requirements with pip
+remote:        Collecting flask
+remote:          Downloading Flask-1.1.2-py2.py3-none-any.whl (94 kB)
+remote:        Collecting click>=5.1
+remote:          Downloading click-7.1.2-py2.py3-none-any.whl (82 kB)
+remote:        Collecting Werkzeug>=0.15
+remote:          Downloading Werkzeug-1.0.1-py2.py3-none-any.whl (298 kB)
+remote:        Collecting itsdangerous>=0.24
+remote:          Downloading itsdangerous-1.1.0-py2.py3-none-any.whl (16 kB)
+remote:        Collecting Jinja2>=2.10.1
+remote:          Downloading Jinja2-2.11.2-py2.py3-none-any.whl (125 kB)
+remote:        Collecting MarkupSafe>=0.23
+remote:          Downloading MarkupSafe-1.1.1-cp36-cp36m-manylinux1_x86_64.whl (27 kB)
+remote:        Installing collected packages: click, Werkzeug, itsdangerous, MarkupSafe, Jinja2, flask
+remote:        Successfully installed Jinja2-2.11.2 MarkupSafe-1.1.1 Werkzeug-1.0.1 click-7.1.2 flask-1.1.2 itsdangerous-1.1.0
+remote: -----> Discovering process types
+remote:        Procfile declares types -> (none)
+remote:
+remote: -----> Compressing...
+remote:        Done: 45M
+remote: -----> Launching...
+remote:        Released v3
+remote:        https://shrouded-eyrie-06740.herokuapp.com/ deployed to Heroku
+remote:
+remote: Verifying deploy... done.
+To https://git.heroku.com/shrouded-eyrie-06740.git
+ * [new branch]      master -> master
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ heroku ps:scale web=0
+Scaling dynos... !
+ ▸    Couldn't find that process type (web).
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   README.rst
+	modified:   requirements.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	.venv/
+	Procfile
+	runtime.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ git add README.rst
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ git add requirements.txt
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ git add .venv/
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ git add Procfile
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ git add runtime.txt
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ git commit -m 'zmiany_niedzielne'
+[master ecef538] zmiany_niedzielne
+ 8 files changed, 22 insertions(+), 7 deletions(-)
+ create mode 120000 .venv/bin/python
+ create mode 120000 .venv/bin/python3
+ create mode 120000 .venv/lib64
+ create mode 100644 .venv/pyvenv.cfg
+ create mode 100644 Procfile
+ create mode 100644 runtime.txt
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ git push
+Username for 'https://github.com': kasia.napieracz@gmail.com
+Password for 'https://kasia.napieracz@gmail.com@github.com':
+Counting objects: 12, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (12/12), 907 bytes | 907.00 KiB/s, done.
+Total 12 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To https://github.com/knap25/se_hello_printer_app.git
+   84dede3..ecef538  master -> master
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ git push heroku master
+Counting objects: 12, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (12/12), 907 bytes | 453.00 KiB/s, done.
+Total 12 (delta 2), reused 0 (delta 0)
+remote: Compressing source files... done.
+remote: Building source:
+remote:
+remote: -----> Python app detected
+remote: -----> Requirements file has been changed, clearing cached dependencies
+remote: -----> Installing python-3.6.10
+remote: -----> Installing pip
+remote: -----> Installing SQLite3
+remote: -----> Installing requirements with pip
+remote:        Collecting flask
+remote:          Downloading Flask-1.1.2-py2.py3-none-any.whl (94 kB)
+remote:        Collecting gunicorn
+remote:          Downloading gunicorn-20.0.4-py2.py3-none-any.whl (77 kB)
+remote:        Collecting click>=5.1
+remote:          Downloading click-7.1.2-py2.py3-none-any.whl (82 kB)
+remote:        Collecting Jinja2>=2.10.1
+remote:          Downloading Jinja2-2.11.2-py2.py3-none-any.whl (125 kB)
+remote:        Collecting itsdangerous>=0.24
+remote:          Downloading itsdangerous-1.1.0-py2.py3-none-any.whl (16 kB)
+remote:        Collecting Werkzeug>=0.15
+remote:          Downloading Werkzeug-1.0.1-py2.py3-none-any.whl (298 kB)
+remote:        Collecting MarkupSafe>=0.23
+remote:          Downloading MarkupSafe-1.1.1-cp36-cp36m-manylinux1_x86_64.whl (27 kB)
+remote:        Installing collected packages: click, MarkupSafe, Jinja2, itsdangerous, Werkzeug, flask, gunicorn
+remote:        Successfully installed Jinja2-2.11.2 MarkupSafe-1.1.1 Werkzeug-1.0.1 click-7.1.2 flask-1.1.2 gunicorn-20.0.4 itsdangerous-1.1.0
+remote: -----> Discovering process types
+remote:        Procfile declares types -> web
+remote:
+remote: -----> Compressing...
+remote:        Done: 45.1M
+remote: -----> Launching...
+remote:        Released v4
+remote:        https://shrouded-eyrie-06740.herokuapp.com/ deployed to Heroku
+remote:
+remote: Verifying deploy... done.
+To https://git.heroku.com/shrouded-eyrie-06740.git
+   84dede3..ecef538  master -> master
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ python
+Python 2.7.17 (default, Apr 15 2020, 17:20:14)
+[GCC 7.5.0] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> exit()
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   runtime.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ git add runtime.txt
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ git commit -m 'poprawione'
+[master 119a6d3] poprawione
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ git push
+Username for 'https://github.com': kasia.napieracz@gmail.com
+Password for 'https://kasia.napieracz@gmail.com@github.com':
+remote: Invalid username or password.
+fatal: Authentication failed for 'https://github.com/knap25/se_hello_printer_app.git/'
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ git push
+Username for 'https://github.com': kasia.napieracz@gmail.com
+Password for 'https://kasia.napieracz@gmail.com@github.com':
+Counting objects: 3, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 273 bytes | 273.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/knap25/se_hello_printer_app.git
+   ecef538..119a6d3  master -> master
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ git push heroku master
+Counting objects: 3, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 273 bytes | 273.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
+remote: Compressing source files... done.
+remote: Building source:
+remote:
+remote: -----> Python app detected
+remote:  !     Python 2 has reached it's community EOL. Upgrade your Python runtime to maintain a secure application as soon as possible.
+remote:        Learn More: https://devcenter.heroku.com/articles/python-2-7-eol-faq
+remote: -----> Found python-3.6.10, removing
+remote: -----> No change in requirements detected, installing from cache
+remote: -----> Installing python-2.7.17
+remote: -----> Installing pip
+remote: -----> Installing SQLite3
+remote: -----> Installing requirements with pip
+remote:        DEPRECATION: Python 2.7 reached the end of its life on January 1st, 2020. Please upgrade your Python as Python 2.7 is no longer maintained. A future version of pip will drop support for Python 2.7. More details about Python 2 support in pip, can be found at https://pip.pypa.io/en/latest/development/release-process/#python-2-support
+remote:        Collecting flask
+remote:          Downloading Flask-1.1.2-py2.py3-none-any.whl (94 kB)
+remote:        Collecting gunicorn
+remote:          Downloading gunicorn-19.10.0-py2.py3-none-any.whl (113 kB)
+remote:        Collecting itsdangerous>=0.24
+remote:          Downloading itsdangerous-1.1.0-py2.py3-none-any.whl (16 kB)
+remote:        Collecting Werkzeug>=0.15
+remote:          Downloading Werkzeug-1.0.1-py2.py3-none-any.whl (298 kB)
+remote:        Collecting click>=5.1
+remote:          Downloading click-7.1.2-py2.py3-none-any.whl (82 kB)
+remote:        Collecting Jinja2>=2.10.1
+remote:          Downloading Jinja2-2.11.2-py2.py3-none-any.whl (125 kB)
+remote:        Collecting MarkupSafe>=0.23
+remote:          Downloading MarkupSafe-1.1.1-cp27-cp27mu-manylinux1_x86_64.whl (24 kB)
+remote:        Installing collected packages: itsdangerous, Werkzeug, click, MarkupSafe, Jinja2, flask, gunicorn
+remote:        Successfully installed Jinja2-2.11.2 MarkupSafe-1.1.1 Werkzeug-1.0.1 click-7.1.2 flask-1.1.2 gunicorn-19.10.0 itsdangerous-1.1.0
+remote: DEPRECATION: Python 2.7 reached the end of its life on January 1st, 2020. Please upgrade your Python as Python 2.7 is no longer maintained. A future version of pip will drop support for Python 2.7. More details about Python 2 support in pip, can be found at https://pip.pypa.io/en/latest/development/release-process/#python-2-support
+remote: -----> Discovering process types
+remote:        Procfile declares types -> web
+remote:
+remote: -----> Compressing...
+remote:        Done: 31.3M
+remote: -----> Launching...
+remote:        Released v5
+remote:        https://shrouded-eyrie-06740.herokuapp.com/ deployed to Heroku
+remote:
+remote: Verifying deploy... done.
+To https://git.heroku.com/shrouded-eyrie-06740.git
+   ecef538..119a6d3  master -> master
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ .travis.yml
+.travis.yml: command not found
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ make test
+PYTHONPATH=. py.test  --verbose -s
+========================================================= test session starts ==========================================================
+platform linux2 -- Python 2.7.17, pytest-4.6.10, py-1.8.1, pluggy-0.13.1 -- /home/tester/.virtualenvs/wsb-simple-flask-app/bin/python
+cachedir: .pytest_cache
+rootdir: /home/tester/Documents/niedziela1605/se_hello_printer_app
+collected 3 items
+
+test/test_formater.py::TestFormater::test_plain_lowercase PASSED
+test/test_views.py::FlaskrTestCase::test_msg_with_output PASSED
+test/test_views.py::FlaskrTestCase::test_outputs PASSED
+
+======================================================= 3 passed in 0.16 seconds =======================================================
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ heroku auth:token
+ ›   Warning: token will expire 05/16/2021
+ ›   Use heroku authorizations:create to generate a long-term token
+29f45a08-be1c-4c19-9d1b-13fd551c6144
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   .travis.yml
+	modified:   hello_world/views.py
+
+no changes added to commit (use "git add" and/or "git commit -a")
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ make test
+PYTHONPATH=. py.test  --verbose -s
+========================================================= test session starts ==========================================================
+platform linux2 -- Python 2.7.17, pytest-4.6.10, py-1.8.1, pluggy-0.13.1 -- /home/tester/.virtualenvs/wsb-simple-flask-app/bin/python
+cachedir: .pytest_cache
+rootdir: /home/tester/Documents/niedziela1605/se_hello_printer_app
+collected 3 items
+
+test/test_formater.py::TestFormater::test_plain_lowercase PASSED
+test/test_views.py::FlaskrTestCase::test_msg_with_output FAILED
+test/test_views.py::FlaskrTestCase::test_outputs PASSED
+
+=============================================================== FAILURES ===============================================================
+_________________________________________________ FlaskrTestCase.test_msg_with_output __________________________________________________
+
+self = <test_views.FlaskrTestCase testMethod=test_msg_with_output>
+
+    def test_msg_with_output(self):
+        rv = self.app.get('/?output=json')
+>       self.assertEquals('{ "imie":"Kasia", "mgs":Hello World!"}', rv.data)
+E       AssertionError: '{ "imie":"Kasia", "mgs":Hello World!"}' != '{ "imie":"Asia", "mgs":Hello World!"}'
+
+test/test_views.py:17: AssertionError
+================================================== 1 failed, 2 passed in 0.21 seconds ==================================================
+Makefile:8: recipe for target 'test' failed
+make: *** [test] Error 1
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ make test
+PYTHONPATH=. py.test  --verbose -s
+========================================================= test session starts ==========================================================
+platform linux2 -- Python 2.7.17, pytest-4.6.10, py-1.8.1, pluggy-0.13.1 -- /home/tester/.virtualenvs/wsb-simple-flask-app/bin/python
+cachedir: .pytest_cache
+rootdir: /home/tester/Documents/niedziela1605/se_hello_printer_app
+collected 3 items
+
+test/test_formater.py::TestFormater::test_plain_lowercase PASSED
+test/test_views.py::FlaskrTestCase::test_msg_with_output PASSED
+test/test_views.py::FlaskrTestCase::test_outputs PASSED
+
+======================================================= 3 passed in 0.14 seconds =======================================================
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ make test
+PYTHONPATH=. py.test  --verbose -s
+========================================================= test session starts ==========================================================
+platform linux2 -- Python 2.7.17, pytest-4.6.10, py-1.8.1, pluggy-0.13.1 -- /home/tester/.virtualenvs/wsb-simple-flask-app/bin/python
+cachedir: .pytest_cache
+rootdir: /home/tester/Documents/niedziela1605/se_hello_printer_app
+collected 3 items
+
+test/test_formater.py::TestFormater::test_plain_lowercase PASSED
+test/test_views.py::FlaskrTestCase::test_msg_with_output PASSED
+test/test_views.py::FlaskrTestCase::test_outputs PASSED
+
+======================================================= 3 passed in 0.17 seconds =======================================================
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ make lint
+flake8 hello_world test
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   .travis.yml
+
+no changes added to commit (use "git add" and/or "git commit -a")
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ git add .travis.yml
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ git commitn -m 'add'
+git: 'commitn' is not a git command. See 'git --help'.
+
+The most similar command is
+	commit
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ git commitn -m'add'
+git: 'commitn' is not a git command. See 'git --help'.
+
+The most similar command is
+	commit
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ git commit -m 'add'
+[master e8ef2fb] add
+ 1 file changed, 4 insertions(+)
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ git push
+Username for 'https://github.com': kasia.napieracz@gmail.com
+Password for 'https://kasia.napieracz@gmail.com@github.com':
+Counting objects: 3, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 342 bytes | 342.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To https://github.com/knap25/se_hello_printer_app.git
+   119a6d3..e8ef2fb  master -> master
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+(wsb-simple-flask-app) tester@tester-m:~/Documents/niedziela1605/se_hello_printer_app$
