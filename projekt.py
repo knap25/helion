@@ -32,24 +32,41 @@ class MojPrzypadekTestowy(unittest.TestCase):
         print("Wybor_produktu")
         wybierz_produkt=driver.find_element_by_link_text('Selenium. Automatyczne testowanie aplikacji')
         wybierz_produkt.click()
-        sleep(3)
+
 
         print("rodo")
         rodo = driver.find_element_by_id("rodo-ok")
-        #sleep(3)
+
         rodo.click()
-        #zajrzyj = driver.find_element_by_id('zajrzyj')
-        #zajrzyj.click()
-        #sleep(2)
+
         kup = driver.find_element_by_id("addToBasket_selata_ebook")
-        #sleep(3)
+        sleep(3)
         kup.click()
 
+        zamow = driver.find_element_by_xpath("//div/p/button[@type='submit']")
+        sleep(5)
+        zamow.click()
+        sleep(5)
+        zarejestruj = driver.find_element_by_link_text('Zarejestruj się')
 
-        #Zamawiam=driver.find_element_by_xpath('//p[text()="submit"]')
-        #sleep(10)
-        #Zamawiam.click()
+        zarejestruj.click()
+        #sleep(3)
+        email = driver.find_element_by_id("email")
+        email.click()
+        email.send_keys("kasia.zawialo@yopmail.com")
+        passone = driver.find_element_by_id("haslo1")
+        passone.click()
+        passone.send_keys("kasia.zawialo")
+        passtwo = driver.find_element_by_id("haslo2")
+        passtwo.click()
+        passtwo.send_keys("kasia.zawialo")
 
+
+        select = driver.find_element_by_id("checkall")
+        select.click()
+
+        zaloguj=driver.find_element_by_xpath("//div/p/button[@type='submit']")
+        zaloguj.click()
 
     def tearDown(self):
         print("the_end")
