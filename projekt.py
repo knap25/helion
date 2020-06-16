@@ -4,8 +4,7 @@ from time import sleep
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-# sleep(2)
-# import time ->  time.sleep(2)
+
 
 class MojPrzypadekTestowy(unittest.TestCase):
     def setUp(self):
@@ -14,7 +13,7 @@ class MojPrzypadekTestowy(unittest.TestCase):
         self.driver.implicitly_wait(5)
         self.driver.get("https://helion.pl/")
         self.driver.maximize_window()
-
+        
     def testSelenium(self):
         driver = self.driver
 
@@ -24,7 +23,7 @@ class MojPrzypadekTestowy(unittest.TestCase):
         search.send_keys("Selenium. Automatyczne testowanie aplikacji")
         sleep(5)
         search_btn = driver.find_element_by_class_name('button')
-        sleep(3)
+        sleep(2)
         search_btn.click()
         search.submit()
         sleep(3)
@@ -34,23 +33,26 @@ class MojPrzypadekTestowy(unittest.TestCase):
         wybierz_produkt.click()
 
 
-        print("rodo")
+        print("zaakceptuj_rodo")
         rodo = driver.find_element_by_id("rodo-ok")
-
         rodo.click()
 
+        print("dodaj_do_koszyka")
         kup = driver.find_element_by_id("addToBasket_selata_ebook")
         sleep(3)
         kup.click()
 
+        print("Zamawiam")
         zamow = driver.find_element_by_xpath("//div/p/button[@type='submit']")
         sleep(5)
         zamow.click()
-        sleep(5)
-        zarejestruj = driver.find_element_by_link_text('Zarejestruj się')
+        #sleep(5)
 
+        print("Zarejestruj_się")
+        zarejestruj = driver.find_element_by_link_text('Zarejestruj się')
         zarejestruj.click()
-        #sleep(3)
+
+        print("zaloz_konto")
         email = driver.find_element_by_id("email")
         email.click()
         email.send_keys("kasia.zawialo@yopmail.com")
@@ -61,13 +63,14 @@ class MojPrzypadekTestowy(unittest.TestCase):
         passtwo.click()
         passtwo.send_keys("kasia.zawialo")
 
-
+        print("akceptuj_oswiadczenia")
         select = driver.find_element_by_id("checkall")
         select.click()
 
-        zaloguj=driver.find_element_by_xpath("//div/p/button[@type='submit']")
-        zaloguj.click()
-
+        print("zakoncz_rejestracje")
+        rejestracja=driver.find_element_by_xpath("//div/p/button[@type='submit']")
+        rejestracja.click()
+        sleep(10)
     def tearDown(self):
         print("the_end")
         self.driver.quit()
