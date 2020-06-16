@@ -13,7 +13,7 @@ class MojPrzypadekTestowy(unittest.TestCase):
         self.driver.implicitly_wait(5)
         self.driver.get("https://helion.pl/")
         self.driver.maximize_window()
-        
+
     def testSelenium(self):
         driver = self.driver
 
@@ -46,7 +46,7 @@ class MojPrzypadekTestowy(unittest.TestCase):
         zamow = driver.find_element_by_xpath("//div/p/button[@type='submit']")
         sleep(5)
         zamow.click()
-        #sleep(5)
+
 
         print("Zarejestruj_się")
         zarejestruj = driver.find_element_by_link_text('Zarejestruj się')
@@ -70,7 +70,7 @@ class MojPrzypadekTestowy(unittest.TestCase):
         print("zakoncz_rejestracje")
         rejestracja=driver.find_element_by_xpath("//div/p/button[@type='submit']")
         rejestracja.click()
-        sleep(10)
+        
     def tearDown(self):
         print("the_end")
         self.driver.quit()
